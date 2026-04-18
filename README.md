@@ -1,53 +1,52 @@
-# Análise do clima de Nova Iguaçu
-
-
+# Nova Iguaçu Weather Analysis
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
+# Table of Contents
+- [Introduction](#introduction)
+- [How to Use](#how-to-use)
+- [Setup](#setup)
+- [Power BI Report](#power-bi-report)
 
-# Tabela de conteúdos
-- [Introdução](#introdução)
-- [Como usar](#como-usar)
-- [Configurações recomendadas](#configurações-recomendadas)
-- [Relatório no Power BI](#relatório-no-power-bi)
+# Introduction
+[Back to top](#table-of-contents)
 
-# Introdução
-[Voltar ao topo](#tabela-de-conteúdos)
+A script built to analyze the maximum and minimum weekly temperatures in Nova Iguaçu, RJ.
 
-Um código feito para analisar a temperatura máxima e mínima durante a semana em Nova Iguaçu, RJ.
+Built using Google Colab, it calculates the minimum, maximum, and average temperatures for the week. Data is scraped from [tempo.com](https://www.tempo.com/nova-iguacu.htm).
 
-O código foi feito utilizando o Google Collab, e nele será possível calcular a mínima/máxima temperatura e a média das temperaturas. O site utilizado para a raspagem dos dados do dia e da temperatura foi o [tempo.com](https://www.tempo.com/nova-iguacu.htm).
+# How to Use
+[Back to top](#table-of-contents)
 
-# Como usar
-[Voltar ao topo](#tabela-de-conteúdos)
+To scrape weather data for a different location, search for the desired city on [tempo.com](https://www.tempo.com/) and update the URL in the request:
 
-Para fazer a raspagem de outro local, basta procurar a localidade que esta procurando no [tempo.com](https://www.tempo.com/nova-iguacu.htm) e mudar o link do requests:
-````
-r = requests.get('novoLink')
-````
+```python
+r = requests.get('newLink')
+```
 
-# Configurações recomendadas
-[Voltar ao topo](#tabela-de-conteúdos)
+# Setup
+[Back to top](#table-of-contents)
 
-Para que o programa funcione é necessário fazer o download e a importação das seguintes bibliotecas:
-- requests (Para conseguir pegar a URL)
-- bs4 (Para a utilização do BeautifulSoup)
-- pandas (Para a transformação dos dados em DataFrame)
-- google.colab (Para baixar o arquivo csv)
+The following libraries are required to run the project:
 
-Para a importação é necessário utilizar o código abaixo:
-````
+- `requests` — to fetch the URL content
+- `bs4` — for parsing HTML with BeautifulSoup
+- `pandas` — to transform the data into a DataFrame
+- `google.colab` — to download the output CSV file
+
+Import them at the top of your notebook:
+
+```python
 import requests
 import re
 import pandas as pd
 from bs4 import BeautifulSoup
 from google.colab import files
-````
+```
 
+# Power BI Report
+[Back to top](#table-of-contents)
 
-# Relatório no Power Bi
-[Voltar ao topo](#tabela-de-conteúdos)
+For a better visualization of the data, the DataFrame was exported as a CSV and imported into Power BI:
 
-Para uma melhor visualização dos dados eu transformei o DataFrame em um arquivo csv e fiz um relátorio no Power BI:
-
-![Relatorio](https://github.com/TinyHero13/climaNovaIguacu/blob/main/assets/relatorio.png)
+![Report](https://github.com/TinyHero13/climaNovaIguacu/blob/main/assets/relatorio.png)
